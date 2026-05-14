@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NeuroVision AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <h2>🧠 NeuroVision AI</h2>
+
+        <ul>
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="#prediction-section">
+                    Prediction
+                </a>
+            </li>
+
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Early Detection Saves Lives
+            </h1>
+
+            <p>
+                NeuroVision AI helps detect Alzheimer Disease
+                using Deep Learning and MRI Scan Analysis.
+            </p>
+
+            <a href="#prediction-section">
+
+                <button>
+                    Start Prediction
+                </button>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+
+    <section class="info-section" id="about">
+
+        <h2>About Alzheimer Disease</h2>
+
+        <p>
+            Alzheimer’s disease is a progressive neurological disorder
+            that affects memory, thinking ability, and behavior.
+            Early diagnosis through MRI analysis can help improve
+            treatment planning and patient care.
+        </p>
+
+    </section>
+
+    <!-- PREDICTION SECTION -->
+
+    <section id="prediction-section">
+
+        <div class="container">
+
+            <div class="card">
+
+                <h1>Alzheimer Disease Prediction</h1>
+
+                <p class="subtitle">
+                    AI-powered MRI Scan Analysis System
+                </p>
+
+                <!-- FORM -->
+
+                <form action="/predict"
+                      method="POST"
+                      enctype="multipart/form-data">
+
+                    <input
+                        type="file"
+                        name="file"
+                        accept="image/*"
+                        required
+                        onchange="previewImage(event)"
+                    >
+
+                    <br><br>
+
+                    <!-- IMAGE PREVIEW -->
+
+                    <img id="preview">
+
+                    <br><br>
+
+                    <button type="submit">
+                        Predict
+                    </button>
+
+                </form>
+
+                <!-- RESULT SECTION -->
+
+                {% if prediction %}
+
+                <div class="result-box">
+
+                    <h2>Prediction Result</h2>
+
+                    <!-- RESULT IMAGE -->
+
+                    <img
+                        src="{{ image_path }}"
+                        class="result-image"
+                    >
+
+                    <!-- PREDICTION -->
+
+                    <h3>{{ prediction }}</h3>
+
+                    <!-- CONFIDENCE BAR -->
+
+                    <div class="progress-container">
+
+                        <div class="progress-bar"
+                             style="width: {{ confidence }}%">
+
+                            {{ confidence }}%
+
+                        </div>
+
+                    </div>
+
+                    <!-- PROBABILITIES -->
+
+                    <h3>Class Probabilities</h3>
+
+                    {% if probabilities %}
+
+                        {% for key, value in probabilities.items() %}
+
+                        <div class="probability-item">
+
+                            <span>{{ key }}</span>
+
+                            <span>{{ value }}%</span>
+
+                        </div>
+
+                        {% endfor %}
+
+                    {% endif %}
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT SECTION -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="contact-card">
+
+            <h2>Developer Contact</h2>
+
+            <p class="contact-text">
+
+                This project was developed by
+                <strong>Banadesh Sajjan</strong>
+
+                as an AI-powered Alzheimer Disease
+                Prediction System using Deep Learning
+                and MRI Scan Analysis.
+
+            </p>
+
+            <div class="contact-info">
+
+                <p>
+                    📧 Email :
+                    Sajjanbanadesh@gmail.com
+                </p>
+
+                <p>
+                    📱 Phone :
+                    8688843544
+                </p>
+
+                <p>
+                    💻 GitHub :
+                    <a href="https://github.com/sajjanbanadesh"
+                       target="_blank">
+
+                       github.com/sajjanbanadesh
+
+                    </a>
+                </p>
+
+                <p>
+                    🔗 LinkedIn :
+                    <a href="https://www.linkedin.com/in/banadesh-sajjan-6a8833212"
+                       target="_blank">
+
+                       linkedin.com/in/banadesh-sajjan
+
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 NeuroVision AI |
+            AI-powered Alzheimer Detection System
+        </p>
+
+    </footer>
+
+    <!-- IMAGE PREVIEW SCRIPT -->
+
+    <script>
+
+        function previewImage(event) {
+
+            const reader = new FileReader();
+
+            reader.onload = function () {
+
+                const output = document.getElementById('preview');
+
+                output.src = reader.result;
+
+                output.style.display = 'block';
+            };
+
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+    </script>
+
+</body>
+
+</html>

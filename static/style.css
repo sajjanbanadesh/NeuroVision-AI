@@ -1,0 +1,420 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    color:white;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    width:100%;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 20px rgba(0,0,0,0.2);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav h2{
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:17px;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#7dd3fc;
+    transform:translateY(-2px);
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+    width:100%;
+    padding:100px 20px 70px;
+    text-align:center;
+}
+
+.hero-content{
+    max-width:900px;
+    margin:auto;
+}
+
+.hero h1{
+    font-size:64px;
+    margin-bottom:20px;
+    line-height:1.2;
+}
+
+.hero p{
+    font-size:22px;
+    opacity:0.9;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+    padding:14px 40px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(45deg,#00c6ff,#0072ff);
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+
+button:hover{
+    transform:scale(1.05);
+    background:linear-gradient(45deg,#009dff,#005eff);
+}
+
+/* =========================
+   INFO SECTION
+========================= */
+
+.info-section{
+    width:90%;
+    max-width:1100px;
+    margin:50px auto;
+    padding:50px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    box-shadow:0 10px 40px rgba(0,0,0,0.25);
+    text-align:center;
+}
+
+.info-section h2{
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+.info-section p{
+    font-size:19px;
+    line-height:1.8;
+    opacity:0.9;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px 20px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    width:760px;
+    padding:45px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.10);
+    backdrop-filter:blur(18px);
+    box-shadow:0 10px 40px rgba(0,0,0,0.35);
+    text-align:center;
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.card h1{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.subtitle{
+    font-size:18px;
+    opacity:0.85;
+    margin-bottom:35px;
+}
+
+/* =========================
+   FILE INPUT
+========================= */
+
+input[type=file]{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:white;
+    color:black;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* =========================
+   IMAGE PREVIEW
+========================= */
+
+#preview{
+    width:260px;
+    margin-top:25px;
+    border-radius:18px;
+    display:none;
+    border:4px solid rgba(255,255,255,0.8);
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   RESULT BOX
+========================= */
+
+.result-box{
+    margin-top:40px;
+    padding:30px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.08);
+    animation:fadeIn 0.8s ease;
+}
+
+.result-box h2{
+    margin-bottom:25px;
+    font-size:32px;
+}
+
+.result-image{
+    width:280px;
+    border-radius:18px;
+    border:4px solid rgba(255,255,255,0.8);
+    margin-bottom:25px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.35);
+}
+
+.result-box h3{
+    font-size:30px;
+    margin-bottom:10px;
+    color:#7dd3fc;
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress-container{
+    width:100%;
+    height:32px;
+    background:rgba(255,255,255,0.2);
+    border-radius:30px;
+    overflow:hidden;
+    margin-bottom:30px;
+}
+
+.progress-bar{
+    height:100%;
+    background:linear-gradient(90deg,#22c55e,#16a34a);
+    text-align:center;
+    line-height:32px;
+    font-weight:bold;
+    border-radius:30px;
+    transition:width 1s ease;
+}
+
+/* =========================
+   PROBABILITIES
+========================= */
+
+.probability-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 18px;
+    margin-top:12px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.08);
+    transition:0.3s;
+}
+
+.probability-item:hover{
+    transform:translateX(5px);
+    background:rgba(255,255,255,0.15);
+}
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section{
+    width:100%;
+    padding:80px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.contact-card{
+    width:700px;
+    padding:50px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    box-shadow:0 10px 40px rgba(0,0,0,0.25);
+    text-align:center;
+}
+
+.contact-card h2{
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+.contact-text{
+    font-size:18px;
+    line-height:1.8;
+    opacity:0.9;
+    margin-bottom:35px;
+}
+
+.contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.contact-info p{
+    font-size:18px;
+    padding:14px;
+    border-radius:14px;
+    background:rgba(255,255,255,0.08);
+    transition:0.3s;
+}
+
+.contact-info p:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,0.15);
+}
+
+.contact-info a{
+    color:#7dd3fc;
+    text-decoration:none;
+}
+
+.contact-info a:hover{
+    text-decoration:underline;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:25px;
+    text-align:center;
+    background:rgba(0,0,0,0.2);
+    margin-top:50px;
+}
+
+footer p{
+    font-size:16px;
+    opacity:0.8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+        padding:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .card{
+        width:100%;
+        padding:25px;
+    }
+
+    .card h1{
+        font-size:30px;
+    }
+
+    .result-image,
+    #preview{
+        width:100%;
+    }
+
+    .info-section{
+        padding:30px 20px;
+    }
+
+    .info-section h2{
+        font-size:32px;
+    }
+
+    .contact-card{
+        width:100%;
+        padding:30px 20px;
+    }
+
+    .contact-card h2{
+        font-size:32px;
+    }
+}
